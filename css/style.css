@@ -154,6 +154,13 @@ nav.scrolled {
   transition: all 0.3s ease;
 }
 
+.site-logo {
+  height: 40px;
+  width: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 /* Main Container */
 main {
   padding-top: 80px;
