@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weekly learning journal entries documenting my creative computing journey">
+    <title>Journal - Learning Journal PWA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LearningPWA" />
+    <link rel="apple-touch-icon" href="images/icon-192.png" />
+</head>
+<body>
+    <div class="bg-animated"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LJ.PWA</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="journal.html" class="active">Journal</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Learning Journal</h1>
+            <p>Weekly reflections, insights, and progress throughout my creative computing journey</p>
+        </div>
+
+        <!-- Journal Entries Section -->
+        <section>
+            <div class="journal-grid">
+                <!-- Week 1 Entry -->
+                <div class="journal-card fade-in">
+                    <div class="journal-header">
+                        <span class="week-badge">Week 1</span>
+                        <h3>Building the Foundation</h3>
+                        <p class="journal-date">October 29, 2025</p>
+                    </div>
+                    <div class="journal-body">
+                        <div class="journal-question">
+                            <h4>How did you approach mobile-first design?</h4>
+                            <p>
+                                I started by designing for the smallest viewport (320px) and progressively 
+                                enhanced the layout for larger screens. My approach included using flexible 
+                                containers with CSS Grid and Flexbox for fluid layouts, implementing 
+                                touch-friendly navigation with adequate tap targets (minimum 44x44px), and 
+                                ensuring typography scaled appropriately using relative units like rem and em. 
+                                I added media queries at strategic breakpoints (768px for tablets and 1024px 
+                                for desktops) to optimize the experience for each device category. This 
+                                methodology ensured the core experience works everywhere, with enhancements 
+                                for larger screens.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>What was the most useful HTML or CSS concept you applied this week?</h4>
+                            <p>
+                                CSS Grid proved to be the most valuable concept this week. It allowed me to 
+                                create complex, responsive layouts with minimal code. The ability to define 
+                                grid-template-columns with repeat(auto-fit, minmax()) created automatically 
+                                responsive card layouts without writing multiple media queries. Combined with 
+                                CSS custom properties (CSS variables) for theming, I achieved a consistent, 
+                                maintainable design system. Flexbox complemented Grid perfectly for navigation 
+                                and smaller component layouts, giving me the right tool for each layout challenge.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>What part of HTML or CSS did you find most challenging or confusing?</h4>
+                            <p>
+                                Managing the z-index stacking context for the mobile menu overlay was initially 
+                                confusing. Understanding how position: fixed creates a new stacking context and 
+                                how that interacts with backdrop-filter effects required careful experimentation. 
+                                I also struggled with creating smooth transitions between mobile and desktop 
+                                navigation patterns. The solution involved properly structuring the HTML to 
+                                support both layouts and using CSS transitions effectively. Additionally, 
+                                ensuring cross-browser compatibility for modern CSS features like backdrop-filter 
+                                and CSS Grid required research and fallback strategies.
+                            </p>
+                        </div>
+                        <div class="journal-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Responsive Design</span>
+                            <span class="tag">Mobile-First</span>
+                            <span class="tag">Grid Layout</span>
+                            <span class="tag">Flexbox</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 Entry - Placeholder -->
+                <div class="journal-card fade-in">
+                    <div class="journal-header">
+                        <span class="week-badge">Week 2</span>
+                        <h3>Adding Interactivity</h3>
+                        <p class="journal-date">Coming Soon</p>
+                    </div>
+                    <div class="journal-body">
+                        <div class="journal-question">
+                            <h4>JavaScript Integration</h4>
+                            <p>
+                                This week will focus on adding JavaScript functionality to enhance user 
+                                interactions. Topics to explore include DOM manipulation, event listeners, 
+                                smooth scrolling, and dynamic content loading.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>Progressive Enhancement</h4>
+                            <p>
+                                Learning how to layer JavaScript enhancements on top of the existing HTML/CSS 
+                                foundation while maintaining functionality for users without JavaScript enabled.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>Performance Optimization</h4>
+                            <p>
+                                Exploring techniques for optimizing page load times, implementing lazy loading 
+                                for images, and minimizing JavaScript execution for better user experience.
+                            </p>
+                        </div>
+                        <div class="journal-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">DOM</span>
+                            <span class="tag">Events</span>
+                            <span class="tag">Performance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 Entry - Placeholder -->
+                <div class="journal-card fade-in">
+                    <div class="journal-header">
+                        <span class="week-badge">Week 3</span>
+                        <h3>PWA Features</h3>
+                        <p class="journal-date">Coming Soon</p>
+                    </div>
+                    <div class="journal-body">
+                        <div class="journal-question">
+                            <h4>Service Workers</h4>
+                            <p>
+                                Implementing service workers to enable offline functionality and improve 
+                                performance through caching strategies. Understanding the service worker 
+                                lifecycle and cache management.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>Web App Manifest</h4>
+                            <p>
+                                Creating a web app manifest to make the application installable on mobile 
+                                devices and desktop. Configuring icons, theme colors, and display modes.
+                            </p>
+                        </div>
+                        <div class="journal-question">
+                            <h4>Offline Strategy</h4>
+                            <p>
+                                Designing an effective offline experience that allows users to access content 
+                                even without internet connectivity. Implementing cache-first strategies for 
+                                static assets.
+                            </p>
+                        </div>
+                        <div class="journal-tags">
+                            <span class="tag">PWA</span>
+                            <span class="tag">Service Workers</span>
+                            <span class="tag">Offline</span>
+                            <span class="tag">Manifest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Learning Journal PWA</h3>
+                <p>A progressive web application documenting my 14-week journey through creative computing and web development.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="journal.html">Journal</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="https://github.com/krishnasahnp/" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/krishna-sah/" target="_blank">LinkedIn</a>
+                <a href="mailto:kr.krishna.np@gmail.com">Email</a>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies</h3>
+                <p>HTML5</p>
+                <p>CSS3</p>
+                <p>JavaScript</p>
+                <p>PWA Standards</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Learning Journal PWA. Developed By Krishna Sah.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learning Journal PWA - My Creative Computing Journey">
+    <title>Home - Learning Journal PWA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1976d2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="LearningPWA" />
+    <link rel="apple-touch-icon" href="images/icon-192.png" />
+</head>
+<body>
+    <div class="bg-animated"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">LJ.PWA</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="journal.html">Journal</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to My Learning Journey</h1>
+                <p class="subtitle">
+                    Documenting my creative computing adventure through weekly reflections, 
+                    projects, and discoveries. This Progressive Web App showcases my growth 
+                    as a developer and creative technologist over a 14-week journey.
+                </p>
+                <div class="hero-buttons">
+                    <a href="journal.html" class="btn btn-primary">
+                        View Journal →
+                    </a>
+                    <a href="projects.html" class="btn btn-outline">
+                        Explore Projects
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3 style="margin-bottom: 1rem; color: var(--dark);">Current Progress</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">14</span>
+                            <span>Weeks</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1</span>
+                            <span>Entries</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span>Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12+</span>
+                            <span>Skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="section-header">
+            <h2>What Makes This PWA Special</h2>
+            <p>Built with modern web technologies and best practices</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile-First Design</h3>
+                <p>Optimized for mobile devices with responsive layouts that adapt seamlessly to any screen size, ensuring a perfect experience on all devices.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">⚡</div>
+                <h3>Progressive Enhancement</h3>
+                <p>Built progressively, starting with HTML and CSS foundations, then enhancing with JavaScript for richer, more interactive experiences.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3>Modern UI/UX</h3>
+                <p>Contemporary design featuring smooth animations, vibrant gradients, and thoughtful interactive elements that create an engaging user experience.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">📖</div>
+                <h3>Learning Documentation</h3>
+                <p>Comprehensive weekly journal entries capturing insights, challenges, breakthrough moments, and continuous growth throughout the learning journey.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💼</div>
+                <h3>Portfolio Showcase</h3>
+                <p>Professional presentation of projects with detailed descriptions, technical stacks, and links to live demos and source code repositories.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🔄</div>
+                <h3>Version Controlled</h3>
+                <p>All changes tracked in GitHub for complete transparency, collaboration opportunities, and a clear history of development progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Learning Journal PWA</h3>
+                <p>A progressive web application documenting my 14-week journey through creative computing and web development.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="journal.html">Journal</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="https://github.com/krishnasahnp/" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/krishna-sah/" target="_blank">LinkedIn</a>
+                <a href="mailto:kr.krishna.np@gmail.com">Email</a>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies</h3>
+                <p>HTML5</p>
+                <p>CSS3</p>
+                <p>JavaScript</p>
+                <p>PWA Standards</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Learning Journal PWA. Developed By Krishna Sah.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
