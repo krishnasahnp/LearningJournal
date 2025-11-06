@@ -334,6 +334,26 @@ section {
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
 }
 
+/* Journal page: reduce the gap between header and entries */
+.journal-page .page-header {
+  padding-bottom: 0.75rem;
+}
+
+.journal-page .page-header + section {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Ensure the very first content section on journal starts immediately */
+.journal-page main > section:first-of-type {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.journal-page .journal-grid {
+  margin-top: 0;
+}
+
 .page-header h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -350,11 +370,26 @@ section {
   margin: 0 auto;
 }
 
+/* Reduce space between page header and the first section */
+.page-header + section {
+  padding-top: 2rem;
+}
+
 /* Journal Styles */
 .journal-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+}
+
+/* Make user entries participate directly in the grid */
+#userJournalList { display: contents; }
+
+/* Force 3 cards per row on desktop */
+@media (min-width: 1024px) {
+  .journal-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .journal-card {
@@ -398,6 +433,19 @@ section {
 
 .journal-body {
   padding: 2rem;
+}
+
+/* Animated collapsible sections */
+.collapsible {
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+/* Reduce vertical padding visually when collapsed to shrink card height more */
+.journal-body.collapsed,
+.project-content.collapsed {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .journal-question {
@@ -687,6 +735,27 @@ section {
   color: var(--dark);
 }
 
+/* Collapse toggles */
+.collapse-toggle,
+.journal-header {
+  position: relative;
+}
+
+.collapse-caret {
+  display: inline-block;
+  margin-left: 0.5rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+[aria-expanded="false"] > .collapse-caret {
+  transform: rotate(-135deg);
+}
+
 .project-description {
   color: var(--gray);
   margin-bottom: 1.5rem;
@@ -875,6 +944,14 @@ footer {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Disable fade-in animations on the journal page to prevent layout jumping */
+.journal-page .fade-in,
+.journal-page .fade-in.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 /* Responsive Design */
@@ -1067,4 +1144,169 @@ footer {
     width: 140px;
     height: 140px;
   }
+}
+
+/* Dark mode (minimal) */
+.dark-mode {
+  background: #0b1324;
+  color: #e6e6e6;
+}
+
+.dark-mode nav {
+  background: rgba(10, 16, 32, 0.95);
+}
+
+.dark-mode .nav-links a {
+  color: #e6e6e6;
+}
+
+.dark-mode .about-content,
+.dark-mode .profile-card,
+.dark-mode .journal-card,
+.dark-mode .project-card,
+.dark-mode .hero-card {
+  background: #121a33;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .journal-body p,
+.dark-mode .project-description,
+.dark-mode .about-section p,
+.dark-mode .timeline-content p,
+.dark-mode .page-header p {
+  color: #b6c1d4;
+}
+
+.dark-mode .stat-item {
+  background: #101933;
+  color: #e6e6e6;
+}
+
+.dark-mode .features-grid .feature-card {
+  background: #121a33;
+}
+
+/* Dark mode hamburger color */
+.dark-mode .menu-toggle span {
+  background: #ffffff;
+}
+
+/* Live Date/Time - modern countdown style */
+.time-container {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  align-items: flex-end;
+}
+
+.time-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-box {
+  min-width: 70px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  color: var(--dark);
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.time-box.tick {
+  animation: tickPop 250ms ease;
+}
+
+@keyframes tickPop {
+  0% { transform: translateY(0) scale(1); box-shadow: var(--shadow); }
+  50% { transform: translateY(-3px) scale(1.04); box-shadow: var(--shadow-lg); }
+  100% { transform: translateY(0) scale(1); box-shadow: var(--shadow); }
+}
+
+.time-label {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+/* Dark mode adjustments for time boxes */
+.dark-mode .time-box {
+  background: #101933;
+  color: #e6e6e6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.dark-mode .time-label {
+  color: #aeb8cb;
+}
+
+/* Journal form styles */
+.journal-form {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.journal-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.journal-form .form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-form label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.journal-form input[type="text"],
+.journal-form input[type="number"],
+.journal-form input[type="date"],
+.journal-form textarea {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--light);
+  border-radius: 12px;
+  background: var(--light);
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.journal-form input:focus,
+.journal-form textarea:focus {
+  border-color: var(--primary);
+  background: #fff;
+}
+
+.journal-form .checkbox-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.journal-form .form-actions {
+  margin-top: 1rem;
+}
+
+.form-error {
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: none;
+}
+
+.dark-mode .journal-form {
+  background: #121a33;
 }

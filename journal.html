@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-title" content="LearningPWA" />
     <link rel="apple-touch-icon" href="images/icon-192.png" />
 </head>
-<body>
+<body class="journal-page">
     <div class="bg-animated"></div>
 
     <!-- Navigation -->
@@ -41,10 +41,11 @@
             <h1>Learning Journal</h1>
             <p>Weekly reflections, insights, and progress throughout my creative computing journey</p>
         </div>
-
         <!-- Journal Entries Section -->
         <section>
             <div class="journal-grid">
+                <!-- User Entries Will Appear Here -->
+                <div id="userJournalList"></div>
                 <!-- Week 1 Entry -->
                 <div class="journal-card fade-in">
                     <div class="journal-header">
@@ -65,31 +66,6 @@
                                 for desktops) to optimize the experience for each device category. This 
                                 methodology ensured the core experience works everywhere, with enhancements 
                                 for larger screens.
-                            </p>
-                        </div>
-                        <div class="journal-question">
-                            <h4>What was the most useful HTML or CSS concept you applied this week?</h4>
-                            <p>
-                                CSS Grid proved to be the most valuable concept this week. It allowed me to 
-                                create complex, responsive layouts with minimal code. The ability to define 
-                                grid-template-columns with repeat(auto-fit, minmax()) created automatically 
-                                responsive card layouts without writing multiple media queries. Combined with 
-                                CSS custom properties (CSS variables) for theming, I achieved a consistent, 
-                                maintainable design system. Flexbox complemented Grid perfectly for navigation 
-                                and smaller component layouts, giving me the right tool for each layout challenge.
-                            </p>
-                        </div>
-                        <div class="journal-question">
-                            <h4>What part of HTML or CSS did you find most challenging or confusing?</h4>
-                            <p>
-                                Managing the z-index stacking context for the mobile menu overlay was initially 
-                                confusing. Understanding how position: fixed creates a new stacking context and 
-                                how that interacts with backdrop-filter effects required careful experimentation. 
-                                I also struggled with creating smooth transitions between mobile and desktop 
-                                navigation patterns. The solution involved properly structuring the HTML to 
-                                support both layouts and using CSS transitions effectively. Additionally, 
-                                ensuring cross-browser compatibility for modern CSS features like backdrop-filter 
-                                and CSS Grid required research and fallback strategies.
                             </p>
                         </div>
                         <div class="journal-tags">
@@ -183,6 +159,56 @@
                 </div>
             </div>
         </section>
+        <!-- Journal Entry Submission Form -->
+        <section>
+            <div class="journal-form" id="journalFormWrapper">
+                <h2 style="margin-bottom:1rem;">Add Journal Entry</h2>
+                <form id="journalForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="week">Week</label>
+                            <input type="number" id="week" name="week" min="1" max="52" placeholder="1" required>
+                            <div class="form-error" data-error-for="week"></div>
+                        </div>
+                        <div class="form-field">
+                            <label for="journalName">Journal name</label>
+                            <input type="text" id="journalName" name="journalName" placeholder="Building the Foundation" required>
+                            <div class="form-error" data-error-for="journalName"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" required>
+                            <div class="form-error" data-error-for="date"></div>
+                        </div>
+                        <div class="form-field">
+                            <label for="taskName">Task name</label>
+                            <input type="text" id="taskName" name="taskName" placeholder="Responsive layout and navbar" required>
+                            <div class="form-error" data-error-for="taskName"></div>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="taskDescription">Task description (min 10 words)</label>
+                        <textarea id="taskDescription" name="taskDescription" rows="4" placeholder="Describe what you did, challenges, and what you learned..." required></textarea>
+                        <div class="form-error" data-error-for="taskDescription"></div>
+                    </div>
+                    <div class="form-field">
+                        <label>Technologies used (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="tech" value="HTML"> HTML</label>
+                            <label><input type="checkbox" name="tech" value="CSS"> CSS</label>
+                            <label><input type="checkbox" name="tech" value="JavaScript"> JavaScript</label>
+                        </div>
+                        <div class="form-error" data-error-for="tech"></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Submit Entry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -219,5 +245,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
