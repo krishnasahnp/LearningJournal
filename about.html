@@ -272,7 +272,28 @@
     </div>
 </footer>
 
+<div class="welcome-modal-backdrop" style="display:none;">
+  <div class="welcome-modal">
+    <div class="welcome-modal-icon">
+      <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" class="checksvg">
+        <circle cx="33" cy="33" r="30" stroke="#6346F1" stroke-width="6" stroke-dasharray="190" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="190" to="0" dur="1s" fill="freeze"/>
+        </circle>
+        <path d="M19 36L30 47L47 23" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="36" stroke-dashoffset="36">
+          <animate attributeName="stroke-dashoffset" from="36" to="0" dur="0.6s" begin="0.8s" fill="freeze"/>
+        </path>
+      </svg>
+    </div>
+    <h2>Welcome to My Journal!</h2>
+    <p style="font-size:1.08rem;margin-bottom:1.2rem;">About: Learn more about me, my background, skills, and goals in creative computing. Welcome and congratulations for visiting this journey!</p>
+    <button class="welcome-modal-close">OK, Let’s Go!</button>
+  </div>
+</div>
+
     <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/thirdparty.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

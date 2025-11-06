@@ -413,6 +413,19 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.appendChild(installBtn);
     });
     
+    // Welcome Modal Show Once-Per-Session
+    const modal = document.querySelector('.welcome-modal-backdrop');
+    const closeBtn = modal?.querySelector('.welcome-modal-close');
+    if (modal && !sessionStorage.getItem('WELCOMED_THIS_SESSION')) {
+      modal.style.display = 'flex';
+      setTimeout(() => { modal.style.opacity = '1'; }, 10);
+      closeBtn?.addEventListener('click', function () {
+        modal.style.opacity = '0';
+        setTimeout(() => { modal.style.display = 'none'; }, 400);
+        sessionStorage.setItem('WELCOMED_THIS_SESSION', 'yes');
+      });
+    }
+    
 });
 
 // ==========================================

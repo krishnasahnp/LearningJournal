@@ -187,6 +187,9 @@ function initJournalForm() {
     const taskDescription = (document.getElementById('taskDescription') || {}).value || '';
     const techNodes = document.querySelectorAll('input[name="tech"]:checked');
     const technologies = Array.from(techNodes).map(n => n.value);
+    const geoLat = (document.getElementById('geoLat') || {}).value || '';
+    const geoLon = (document.getElementById('geoLon') || {}).value || '';
+    const geoAddress = (document.getElementById('geoAddress') || {}).value || '';
 
     // Validate
     let valid = true;
@@ -213,16 +216,28 @@ function initJournalForm() {
       taskName: taskName.trim(),
       taskDescription: taskDescription.trim(),
       technologies,
+      geoLat,
+      geoLon,
+      geoAddress,
       createdAt: new Date().toISOString()
     };
 
     const current = getStoredEntries();
     current.unshift(entry); // newest first
-    localStorage.setItem('journalEntries', JSON.stringify(current));
+    // Save using storage wrapper if present
+    if (window.StorageAPI && StorageAPI.saveEntries) {
+      StorageAPI.saveEntries(current);
+    } else {
+      localStorage.setItem('journalEntries', JSON.stringify(current));
+    }
 
     form.reset();
     renderUserJournalEntries();
     scrollToUserEntries();
+    // Notify user
+    if (typeof notifySavedEntry === 'function') {
+      notifySavedEntry(entry.journalName);
+    }
   });
 
   function showError(field, message) {
@@ -243,6 +258,9 @@ function initJournalForm() {
 
 function getStoredEntries() {
   try {
+    if (window.StorageAPI && StorageAPI.getEntries) {
+      return StorageAPI.getEntries();
+    }
     const raw = localStorage.getItem('journalEntries');
     return raw ? JSON.parse(raw) : [];
   } catch (_) {
@@ -260,6 +278,7 @@ function renderUserJournalEntries() {
   entries.forEach(function (entry) {
     const card = document.createElement('div');
     card.className = 'journal-card fade-in';
+    card.id = entry.id;
 
     const header = document.createElement('div');
     header.className = 'journal-header';
@@ -277,7 +296,9 @@ function renderUserJournalEntries() {
         <h4>Task: ${escapeHtml(entry.taskName)}</h4>
         <p>${escapeHtml(entry.taskDescription)}</p>
       </div>
+      ${entry.geoAddress ? `<p style="color:var(--gray);">Location: ${escapeHtml(entry.geoAddress)}</p>` : (entry.geoLat && entry.geoLon ? `<p style=\"color:var(--gray);\">Location: ${escapeHtml(entry.geoLat)}, ${escapeHtml(entry.geoLon)}</p>` : '')}
       <div class="journal-tags">${tags}</div>
+      <div style="margin-top:1rem;"><button type="button" class="btn btn-outline" data-copy-entry="${entry.id}">Copy</button></div>
     `;
 
     card.appendChild(header);

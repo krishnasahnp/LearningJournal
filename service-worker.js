@@ -1,12 +1,21 @@
-const CACHE_NAME = 'learningpwa-cache-v1';
+const CACHE_NAME = 'learningpwa-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/about.html',
+  '/journal.html',
+  '/projects.html',
   '/css/style.css',
   '/js/main.js',
-  '/manifest.json',
+  '/js/script.js',
+  '/js/storage.js',
+  '/js/browser.js',
+  '/js/thirdparty.js',
   '/images/icon-192.png',
   '/images/icon-512.png',
+  '/images/logo.png',
+  '/images/profile.jpeg',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', event => {

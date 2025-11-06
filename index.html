@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="LearningPWA" />
     <link rel="apple-touch-icon" href="images/icon-192.png" />
+    <meta http-equiv="Permissions-Policy" content="autoplay=(self), encrypted-media=(self), accelerometer=(self), gyroscope=(self), picture-in-picture=(self), clipboard-write=(self)" />
 </head>
 <body>
     <div class="bg-animated"></div>
@@ -77,6 +78,14 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Inspiration Quotes Modern Slider -->
+    <section>
+      <div class="section-header">
+        <h2>Inspiration</h2>
+      </div>
+      <div id="quotesGrid" class="quotes-slider-container"></div>
     </section>
 
             <!-- About Section -->
@@ -170,6 +179,19 @@
         </div>
     </section>
 
+        <!-- Google Maps: London, UK (before footer) -->
+<section style="width:100%;padding:2rem 0 0 0;text-align:center;">
+    <h2 style="margin-bottom:1rem;">Location: London, United Kingdom</h2>
+    <div style="display:flex;justify-content:center;width:100%;">
+      <div style="width:100%;max-width:95%;min-height:640px;box-shadow:0 10px 38px 0 rgba(30,40,120,.10);border-radius:24px;overflow:hidden;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39753.69225419435!2d-0.15369877117736653!3d51.50735088012005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3336000001%3A0x6decf14b7e5b3b35!2sLondon%2C%20UK!5e0!3m2!1sen!2suk!4v1709999999999!5m2!1sen!2suk"
+          width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps - London, United Kingdom"></iframe>
+      </div>
+    </div>
+  </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -203,7 +225,29 @@
         </div>
     </footer>
 
+<div class="welcome-modal-backdrop" style="display:none;">
+  <div class="welcome-modal">
+    <div class="welcome-modal-icon">
+      <!-- SVG animated icon (check/confetti) -->
+      <svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg" class="checksvg">
+        <circle cx="33" cy="33" r="30" stroke="#6346F1" stroke-width="6" stroke-dasharray="190" stroke-dashoffset="0">
+          <animate attributeName="stroke-dashoffset" from="190" to="0" dur="1s" fill="freeze"/>
+        </circle>
+        <path d="M19 36L30 47L47 23" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-dasharray="36" stroke-dashoffset="36">
+          <animate attributeName="stroke-dashoffset" from="36" to="0" dur="0.6s" begin="0.8s" fill="freeze"/>
+        </path>
+      </svg>
+    </div>
+    <h2>Welcome to My Journal!</h2>
+    <p style="font-size:1.08rem;margin-bottom:1.2rem;">Explore my creative journey through web projects, weekly learning journals, and inspirations. Start by checking the quotes or projects below. Congratulations on joining this digital adventure!</p>
+    <button class="welcome-modal-close">OK, Let’s Go!</button>
+  </div>
+</div>
+
     <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/thirdparty.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
