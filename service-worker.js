@@ -1,4 +1,4 @@
-const CACHE_NAME = 'learningpwa-cache-v2';
+const CACHE_NAME = 'learningpwa-cache-v3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -42,10 +42,30 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-  );
+  // Use network-first strategy for reflections.json to ensure fresh data
+  if (event.request.url.includes('reflections.json')) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          // Clone the response before caching
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+          return response;
+        })
+        .catch(() => {
+          // If network fails, try to serve from cache
+          return caches.match(event.request);
+        })
+    );
+  } else {
+    // Use cache-first strategy for static assets
+    event.respondWith(
+      caches.match(event.request)
+        .then(response => {
+          return response || fetch(event.request);
+        })
+    );
+  }
 });

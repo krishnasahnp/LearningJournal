@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
   initLiveDateOnHome();
   initJournalCollapsibles();
   initProjectCollapsibles();
-  initJournalForm();
-  renderUserJournalEntries();
+  // initJournalForm(); // Disabled in favor of journal-data.js
+  // renderUserJournalEntries(); // Disabled in favor of journal-data.js
 });
 
 function renderNavbar() {
